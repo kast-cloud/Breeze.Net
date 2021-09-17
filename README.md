@@ -1,5 +1,5 @@
 # Breeze.Net
-Unofficial .NET Core API wrapper for Breeze Chms.
+Unofficial .NET Core API wrapper for Breeze Chms. The wrapper is not complete.
 
 > **Disclaimer:**  This API wrapper is not created or maintained by Breeze.
 
