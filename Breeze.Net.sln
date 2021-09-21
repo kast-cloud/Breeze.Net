@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BreezeAPI", "BreezeAPI\BreezeAPI.csproj", "{E8976140-3753-44AA-9DF8-BD8057CF7B0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Breeze.Net", "Breeze.Net\Breeze.Net.csproj", "{E8976140-3753-44AA-9DF8-BD8057CF7B0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreezeAPITests", "BreezeAPITests\BreezeAPITests.csproj", "{9D0FCBB2-3C4A-4670-BC4F-BFBF657E511F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Breeze.Net.Tests", "Tests\Breeze.Net.Tests.csproj", "{9D0FCBB2-3C4A-4670-BC4F-BFBF657E511F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

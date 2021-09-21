@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace BreezeAPI.Entities
+namespace Breeze.Net.Entities
 {
     public class Person
     {

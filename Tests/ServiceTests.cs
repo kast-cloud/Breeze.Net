@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace BreezeAPI.Tests
+namespace Breeze.Net.Tests
 {
     [TestClass()]
     public class ServiceTests

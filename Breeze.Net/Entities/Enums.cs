@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BreezeAPI.Entities
+namespace Breeze.Net.Entities
 {
     public class Enums
     {

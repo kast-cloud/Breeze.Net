@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BreezeAPI\BreezeAPI.csproj" />
+    <ProjectReference Include="..\Breeze.Net\Breeze.Net.csproj" />
   </ItemGroup>
 
   <ItemGroup>
