@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using BreezeAPI.Entities;
+using Breeze.Net.Entities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
-using static BreezeAPI.Entities.Enums;
+using static Breeze.Net.Entities.Enums;
 
-namespace BreezeAPI
+namespace Breeze.Net
 {
     public class BreezeService
     {
