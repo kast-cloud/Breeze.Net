@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Breeze.Net.Entities
+﻿namespace Breeze.Net.Entities
 {
     public class Enums
     {

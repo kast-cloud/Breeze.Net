@@ -1,23 +1,21 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Linq;
+using System.Text.Json;
+using System.Threading.Tasks;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Breeze.Net.Tests
 {
-    [TestClass()]
-    public class ServiceTests
+    public class ServiceTests : BreezeTest
     {
-        
-        BreezeService service = new BreezeService("", "");
-
-        [TestMethod()]
+        [Fact]
         public void ListPeopleTest()
         {
             var output = service.ListPeople(true);
             Assert.IsTrue(output != null && output.Any());
         }
 
-        [TestMethod()]
+        [Fact]
         public void ListMalePeopleTest()
         {
             var output = service.ListPeople(true, "{\"445063509\":1}");
@@ -25,7 +23,7 @@ namespace Breeze.Net.Tests
         }
 
 
-        [TestMethod()]
+        [Fact]
         public void ListProfileFieldsTest()
         {
             var output = service.ListProfileFields();
@@ -33,7 +31,7 @@ namespace Breeze.Net.Tests
             Assert.IsTrue(output != null && output.Any());
         }
 
-        [TestMethod()]
+        [Fact]
         public void ShowPersonTest()
         {
             var output = service.ShowPerson("34193296");
@@ -41,56 +39,56 @@ namespace Breeze.Net.Tests
             Assert.IsTrue(output != null);
         }
 
-        [TestMethod()]
+        [Fact]
         public void ListFoldersTest()
         {
             var output = service.ListFolders();
             Assert.IsTrue(output != null);
         }
 
-        [TestMethod()]
+        [Fact]
         public void ListTagsTest()
         {
             var output = service.ListTags();
             Assert.IsTrue(output != null);
         }
 
-        [TestMethod()]
+        [Fact]
         public void ListTagsFromAFolderTest()
         {
             var output = service.ListTags("1657116");
             Assert.IsTrue(output != null);
         }
 
-        [TestMethod()]
+        [Fact]
         public void ListPeopleWithTagTest()
         {
             var output = service.ListPeopleWithTag(true, "4025664");
             Assert.IsTrue(output != null);
         }
 
-        [TestMethod()]
+        [Fact]
         public void ListEventsTest()
         {
             var output = service.ListEvents(DateTime.Now.AddDays(6));
             Assert.IsTrue(output != null);
         }
 
-        [TestMethod()]
+        [Fact]
         public void ListEventTest()
         {
             var output = service.ListEvent("220628184");
             Assert.IsTrue(output != null);
         }
 
-        [TestMethod()]
+        [Fact]
         public void ListCalendarsTest()
         {
             var output = service.ListCalendars();
             Assert.IsTrue(output != null);
         }
 
-        [TestMethod()]
+        [Fact]
         public void AddPersonTest()
         {
             var output = service.AddPerson("Scott", "Tiger", "scott@tiger.com", "0412345678", "Male");

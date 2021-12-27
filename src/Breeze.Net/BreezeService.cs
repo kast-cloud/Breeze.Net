@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using Breeze.Net.Entities;
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 using RestSharp;
+
 using static Breeze.Net.Entities.Enums;
 
 namespace Breeze.Net
