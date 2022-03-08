@@ -63,7 +63,7 @@ namespace Breeze.Net
             bool queryMore = true;
             List<Person> output = new List<Person>();
             Dictionary<string, string> queryStrings = new Dictionary<string, string>();
-            queryStrings.Add("details", (includeDetail ? "1" : "0"));
+            queryStrings.Add("details", "0");
             queryStrings.Add("limit", recordsPerPage.ToString());
             queryStrings.Add("offset", offset.ToString());
             if (!string.IsNullOrEmpty(filter))
@@ -82,11 +82,46 @@ namespace Breeze.Net
             {
                 var responseText = SendRequest("people", Method.GET, queryStrings);
 
-                List<Person> peoples = JsonConvert.DeserializeObject<List<Person>>(responseText);
+                var people = new List<Person>();
 
-                output.AddRange(peoples);
+                if (!string.IsNullOrEmpty(responseText))
+                {
+                    var succeeded = true;
+                    try
+                    {
+                        people = JsonConvert.DeserializeObject<List<Person>>(responseText);
+                    }
+                    catch (Exception)
+                    {
+                        succeeded = false;
+                    }
 
-                if (peoples == null || peoples.Count < recordsPerPage)
+                    if (!succeeded)
+                    {
+                        try
+                        {
+                            var results = JsonConvert.DeserializeObject<Dictionary<string, Person>>(responseText);
+                            people = results.Select(x =>
+                            {
+                                var success = int.TryParse(x.Key, out int result);
+                                return new { x.Value, success };
+                            })
+                            .Where(pair => pair.success)
+                            .Select(pair => pair.Value).ToList();
+                        }
+                        catch (Exception)
+                        {
+                            succeeded = false;
+                        }
+                    }
+                }
+
+                if(people != null && people.Count > 0)
+                {
+                    output.AddRange(people);
+                }
+
+                if (people == null || people.Count < recordsPerPage)
                 {
                     queryMore = false;
                 }
@@ -103,16 +138,28 @@ namespace Breeze.Net
                 }
             }
 
-            if (includeDetail)
+            if (includeDetail && output.Count < 101)
             {
-                foreach (var people in output)
+                var detailedPeople = new List<Person>();
+
+                foreach (var person in output)
                 {
-                    people.FetchDetailToList(profileFields);
+                    try
+                    {
+                        detailedPeople.Add(this.ShowPerson(person.id, true));
+                    }
+                    catch (Exception)
+                    {
+                        
+                    }
                 }
+
+                output = detailedPeople;
             }
 
             return output;
         }
+
 
         public Person ShowPerson(string id, bool includeDetail = true)
         {
@@ -345,7 +392,7 @@ namespace Breeze.Net
             }
 
 
-            queryStrings.Add("fields_json", JsonConvert.SerializeObject(requestFields)) ;
+            queryStrings.Add("fields_json", JsonConvert.SerializeObject(requestFields));
 
             var responseText = SendRequest("people/add", Method.GET, queryStrings);
 

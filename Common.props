@@ -1,7 +1,7 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Company>Kast Enterprises Pty Ltd.</Company>
-    <Copyright>2021 Kast Enterprises Pty Ltd</Copyright>
+    <Copyright>2022 Kast Enterprises Pty Ltd</Copyright>
     <Authors>Seth Cleaver</Authors>
     <PackageProjectUrl>https://github.com/kast-cloud/Breeze.Net</PackageProjectUrl>
     <RepositoryUrl>https://github.com/kast-cloud/Breeze.Net</RepositoryUrl>
