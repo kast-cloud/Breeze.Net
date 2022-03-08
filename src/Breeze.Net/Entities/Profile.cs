@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Breeze.Net.Entities
+﻿namespace Breeze.Net.Entities
 {
     public class Profile
     {
@@ -42,5 +38,4 @@ namespace Breeze.Net.Entities
         public string profile_id { get; set; }
         public string created_on { get; set; }
     }
-
 }

@@ -1,0 +1,25 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Company>Kast Enterprises Pty Ltd.</Company>
+    <Copyright>2022 Kast Enterprises Pty Ltd</Copyright>
+    <Authors>Seth Cleaver</Authors>
+    <PackageProjectUrl>https://github.com/kast-cloud/Breeze.Net</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/kast-cloud/Breeze.Net</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <VersionSuffix Condition="'$(BuildNumber)' != ''">$(BuildNumber)</VersionSuffix>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <LangVersion>Latest</LangVersion>
+    <DebugType>portable</DebugType>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+  </PropertyGroup>
+</Project>

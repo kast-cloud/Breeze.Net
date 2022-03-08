@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
 
 namespace Breeze.Net.Entities
 {
@@ -13,22 +12,41 @@ namespace Breeze.Net.Entities
         public string id { get; set; }
         public string first_name { get; set; }
         public string force_first_name { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string nick_name { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string middle_name { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string maiden_name { get; set; }
+
         public string last_name { get; set; }
         public string thumb_path { get; set; }
         public string path { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string street_address { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string city { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string state { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string zip { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public Details details { get; set; }
+
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public Family[] family { get; set; }
 
         public void FetchDetailToList(List<Profile> profileFields)
         {
-            if (details.AdditionalData == null) return;
+            if (details?.AdditionalData == null) return;
             var customValues = new List<CustomValue>();
 
             var fields = profileFields.SelectMany(x => x.fields);
@@ -98,15 +116,21 @@ namespace Breeze.Net.Entities
     public class Details
     {
         public string person_id { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string birthdate { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string grade { get; set; }
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public string single_line { get; set; }
 
         [OnDeserialized]
         internal void OnDeserialized(StreamingContext ctx)
         {
-            var ser = (JValue)JsonConvert.SerializeObject(this);
-            AdditionalData.Merge(ser);
+            if (this != null)
+            {
+                var ser = (JValue)JsonConvert.SerializeObject(this);
+                AdditionalData.Merge(ser);
+            }
         }
 
         [JsonExtensionData]
