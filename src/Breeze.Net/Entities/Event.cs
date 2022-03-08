@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Breeze.Net.Entities
+﻿namespace Breeze.Net.Entities
 {
     public class Event
     {
@@ -18,6 +14,4 @@ namespace Breeze.Net.Entities
         public string is_modified { get; set; }
         public string created_on { get; set; }
     }
-
-
 }

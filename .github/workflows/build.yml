@@ -1,0 +1,30 @@
+name: build
+
+on:
+  push:
+    branches: [main, develop]
+    paths-ignore:
+      - 'docs/**'
+      - 'readme.md'
+
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 6.0.x
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build --configuration Release --no-restore
+      - name: Set Secrets
+        run: dotnet user-secrets set "BreezeApiKey" "${{ secrets.BREEZE_APIKEY }}" --project "Tests/Breeze.Net.Tests/Breeze.Net.Tests.csproj" && dotnet user-secrets set "BreezeSubdomain" "${{ secrets.BREEZE_SUBDOMAIN }}" --project "Tests/Breeze.Net.Tests/Breeze.Net.Tests.csproj"
+      - name: Test
+        run: dotnet test --no-restore

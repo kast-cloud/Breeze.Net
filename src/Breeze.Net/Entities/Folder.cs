@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Breeze.Net.Entities
+﻿namespace Breeze.Net.Entities
 {
     public class Folder
     {
@@ -11,5 +7,4 @@ namespace Breeze.Net.Entities
         public string name { get; set; }
         public string created_on { get; set; }
     }
-
 }
