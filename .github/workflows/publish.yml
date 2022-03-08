@@ -20,8 +20,7 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
       - name: Set Secrets
-        run: dotnet user-secrets set "BreezeSubdomain" "${{ secrets.BREEZEAPIKEY }}" --project "Tests/Breeze.Net.Tests/Breeze.Net.Tests.csproj"
-        run: dotnet user-secrets set "BreezeSubdomain" "${{ secrets.BREEZE_SUBDOMAIN }}" --project "Tests/Breeze.Net.Tests/Breeze.Net.Tests.csproj"
+        run: dotnet user-secrets set "BreezeSubdomain" "${{ secrets.BREEZEAPIKEY }}" --project "Tests/Breeze.Net.Tests/Breeze.Net.Tests.csproj" && dotnet user-secrets set "BreezeSubdomain" "${{ secrets.BREEZE_SUBDOMAIN }}" --project "Tests/Breeze.Net.Tests/Breeze.Net.Tests.csproj"
       - name: Test
         run: dotnet test --no-restore
       - name: Pack
